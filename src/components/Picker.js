@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Picker = ({ selected, onChange, options }) => (
+const Picker = ({ id, onChange, options }) => (
   <span>
-    <h1>{selected}</h1>
-    <select onChange={e => onChange(e.target.value)} value={selected}>
+    <h1>{id}</h1>
+    <select id={id} onChange={e => onChange(e)}>
+      <option></option>
       {options.map(option =>
         <option value={option} key={option}>
           {option}
@@ -16,8 +17,8 @@ const Picker = ({ selected, onChange, options }) => (
 
 Picker.propTypes = {
   options: PropTypes.node.isRequired,
-  selected: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired
 }
 
 export default Picker
